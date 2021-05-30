@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages via angular-cli-ghpages
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -26,4 +26,4 @@ jobs:
          GH_TOKEN: ${{ secrets.GH_TOKEN }}
        run: |
          npm install
-         npm run ng -- deploy  --name="Displayed Username" --email=your.mail@example.org
+         npm run ng -- deploy --base-href=/need-for-drive/  --name="Displayed Username" --email=your.mail@example.org
