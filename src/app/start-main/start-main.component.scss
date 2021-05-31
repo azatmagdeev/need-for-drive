@@ -13,7 +13,7 @@
 .main__header {
   text-align: end;
   padding-top: 13px;
-  margin-right: 20px;
+  margin: 0 20px;
 }
 
 .main-header__title {
@@ -56,7 +56,7 @@
   @include button_linear;
   font-size: 18px;
   padding: 1em;
-  width: 100vw;
+  width: 100%;
   margin: 15px auto;
 }
 
@@ -79,4 +79,54 @@
 .main-footer__copyright {
   color: $white;
   margin-right: 20px;
+}
+
+@media (min-width: 767px) {
+
+  .main{
+    width: calc(100% - 60px);
+    margin-left: 60px;
+  }
+
+  .main__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-header__title{
+    margin-top: 2px;
+  }
+
+  .main__title{
+    font-size: 70px;
+  }
+
+  .main__slogan{
+    font-size: 26px;
+  }
+
+  .main__button {
+    width: 250px;
+    margin-left: 20px;
+    border-radius: 5px;
+  }
+
+  .main__footer {
+    background-color: $white;
+    height: 10%;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .main-footer {
+    &__copyright {
+      color: $gray;
+      margin-left: 20px;
+    }
+
+    &__phone {
+      color: $black;
+    }
+  }
 }

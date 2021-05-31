@@ -8,7 +8,6 @@
   left: -100%;
   transition: left;
   transition-duration: 200ms;
-
 }
 
 $burger_btn_size: 20px;
@@ -22,7 +21,6 @@ $burger_btn_size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  //border: 1px solid white;
 }
 
 .burger-btn__line {
@@ -100,4 +98,22 @@ $burger_btn_size: 20px;
   left: 20px;
   bottom: 20px;
   z-index: 1;
+}
+
+@media (min-width: 767px){
+  .menu {
+    left: calc(-100% + 60px);
+  }
+
+  .burger-btn__line{
+    background-color: $white;
+  }
+
+  .menu__lang{
+    position: fixed;
+  }
+
+  .menu_open{
+    left: 0;
+  }
 }
