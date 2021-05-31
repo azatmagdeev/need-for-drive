@@ -1,0 +1,103 @@
+@import "../scss/variables";
+
+.menu {
+  background-color: $black;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: -100%;
+  transition: left;
+  transition-duration: 200ms;
+
+}
+
+$burger_btn_size: 20px;
+
+.menu__burger-button {
+  position: fixed;
+  width: $burger_btn_size;
+  height: $burger_btn_size;
+  top: $burger_btn_size;
+  left: $burger_btn_size;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  //border: 1px solid white;
+}
+
+.burger-btn__line {
+  background-color: $black;
+  height: $burger_btn_size/5;
+  width: $burger_btn_size;
+  transition: background-color 200ms;
+}
+
+.menu_open {
+  left: 0;
+}
+
+.menu_open .burger-btn__line {
+  background-color: $white;
+}
+
+.menu_open .burger-btn__line_center {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.burger-btn__line_center {
+  transition: opacity 200ms;
+}
+
+.menu_open .burger-btn__line_top {
+  position: absolute;
+  transform: rotate(45deg);
+  top: $burger_btn_size/5*2;
+  transition: top 200ms, transform  200ms
+}
+
+.burger-btn__line_top {
+  transition: transform 100ms, top 200ms 300ms
+}
+
+.menu_open .burger-btn__line_bottom {
+  transform: rotate(-45deg);
+  position: absolute;
+  top: $burger_btn_size/5*2;
+  transition: top 200ms, transform  200ms
+}
+
+.burger-btn__line_bottom {
+  transition: transform 100ms, top 200ms 300ms
+}
+
+
+.menu__list {
+  color: $white;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4em;
+  margin-left: 20px;
+}
+
+.menu-list__item {
+  margin-bottom: .5em;
+}
+
+.menu__social{
+  margin-left: 20px;
+  margin-top: 2em;
+  display: flex;
+  gap: 1em;
+}
+
+.menu__lang{
+  color: $main_color;
+  font-size: 13px;
+  font-weight: bold;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  z-index: 1;
+}
