@@ -2,14 +2,7 @@
 
 
 
-/***************************************************
-Mixins
- */
 
-@mixin button_linear {
-  background: linear-gradient($main_color, #039F67);
-  color: $white;
-}
 
 body {
   font-family: Roboto, sans-serif;

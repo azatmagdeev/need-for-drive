@@ -1,0 +1,9 @@
+@import "variables";
+/***************************************************
+Mixins
+ */
+
+@mixin button_linear {
+  background: linear-gradient(90deg, $main_color, #039F67);
+  color: $white;
+}
