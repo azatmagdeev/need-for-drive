@@ -51,7 +51,7 @@ $burger_btn_size: 20px;
   position: absolute;
   transform: rotate(45deg);
   top: $burger_btn_size/5*2;
-  transition: top 200ms, transform  200ms
+  transition: top 200ms, transform 200ms
 }
 
 .burger-btn__line_top {
@@ -62,35 +62,50 @@ $burger_btn_size: 20px;
   transform: rotate(-45deg);
   position: absolute;
   top: $burger_btn_size/5*2;
-  transition: top 200ms, transform  200ms
+  transition: top 200ms, transform 200ms
 }
 
 .burger-btn__line_bottom {
   transition: transform 100ms, top 200ms 300ms
 }
 
+.menu__base {
+  margin-top: 8em;
+}
 
 .menu__list {
   color: $white;
   font-size: 22px;
   display: flex;
   flex-direction: column;
-  margin-top: 4em;
   margin-left: 20px;
 }
 
 .menu-list__item {
   margin-bottom: .5em;
+  cursor: pointer;
 }
 
-.menu__social{
+.menu-list__item:hover {
+  color: $main_color;
+}
+
+.menu__social {
   margin-left: 20px;
   margin-top: 2em;
   display: flex;
   gap: 1em;
 }
 
-.menu__lang{
+.menu-social__item {
+  cursor: pointer;
+}
+
+.menu-social__item:hover path {
+  fill: $main_color;
+}
+
+.menu__lang {
   color: $main_color;
   font-size: 13px;
   font-weight: bold;
@@ -100,20 +115,32 @@ $burger_btn_size: 20px;
   z-index: 1;
 }
 
-@media (min-width: 767px){
+
+@media (min-width: 767px) {
   .menu {
     left: calc(-100% + 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .burger-btn__line{
+  .burger-btn__line {
     background-color: $white;
   }
 
-  .menu__lang{
+  .menu__lang {
     position: fixed;
   }
 
-  .menu_open{
+  .menu_open {
     left: 0;
+  }
+
+  .menu__base {
+    margin: 0;
+  }
+  .menu__list {
+    font-size: 28px;
+    width: 579px;
   }
 }
