@@ -83,7 +83,7 @@
 
 @media (min-width: 767px) {
 
-  .main{
+  .main {
     width: calc(100% - 60px);
     margin-left: 60px;
   }
@@ -93,15 +93,15 @@
     justify-content: space-between;
   }
 
-  .main-header__title{
+  .main-header__title {
     margin-top: 2px;
   }
 
-  .main__title{
+  .main__title {
     font-size: 70px;
   }
 
-  .main__slogan{
+  .main__slogan {
     font-size: 26px;
   }
 
@@ -129,4 +129,13 @@
       color: $black;
     }
   }
+}
+
+@media (min-width: 1024px) {
+  :host {
+    min-width: 554px;
+    width: calc(50vw + 60px);
+  }
+
+
 }
