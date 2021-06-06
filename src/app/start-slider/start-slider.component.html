@@ -1,31 +1,38 @@
 <div class="slider">
 
-  <div class="slider__slide" style="background: linear-gradient(rgba(0, 0, 0, 0), black), url('assets/img.png') center;">
-
-    <div class="slider__arrow slider__arrow-left">
-      <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 1L1 10L9 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <div class="slide__content">
-      <div class="slide__title">Бесплатная парковка</div>
-      <div class="slide__descr">Оставляйте машину на платных городских парковках и разрешенных местах, не нарушая ПДД, а также в аэропортах.</div>
-      <button class="slide__button">Подробнее</button>
-    </div>
-
-    <div class="slider__arrow slider__arrow-right">
-      <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 1L9 10L1 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <div class="slider__dots">
-      <div class="slider-dots__dot"></div>
-      <div class="slider-dots__dot slider-dots__dot_active"></div>
-      <div class="slider-dots__dot"></div>
-      <div class="slider-dots__dot"></div>
+  <div class="slider__slide" [style]="{right: calculateRight()}">
+    <div *ngFor="let slide of slides"
+         class="slider__slide-item"
+         style="background: linear-gradient(rgba(0, 0, 0, 0), black),
+                            url('../../assets/{{slide.img}}') center;">
+      <div class="slide__content">
+        <div class="slide__title">{{slide.title}}</div>
+        <div class="slide__descr">{{slide.descr}}</div>
+        <button class="slide__button">Подробнее</button>
+      </div>
     </div>
   </div>
+
+  <div class="slider__arrow slider__arrow-left">
+    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M9 1L1 10L9 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+
+
+  <div class="slider__arrow slider__arrow-right">
+    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 1L9 10L1 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+
+  <div class="slider__dots">
+    <div *ngFor="let slide of slides" title="{{slide.title}}"
+         (click)="selectSlide($event)"
+         class="slider-dots__dot{{slide.active?' slider-dots__dot_active':''}}">
+    </div>
+  </div>
+
 
 </div>
