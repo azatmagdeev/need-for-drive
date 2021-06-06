@@ -49,11 +49,10 @@ export class StartSliderComponent implements OnInit {
 
   constructor() {
     this.getActiveSlideIndex();
-    // this.getSlideWidth();
+    setInterval(()=>this.next(),7000)
   }
 
   ngOnInit(): void {
-    debugger
   }
 
   selectSlide($event: Event) {
