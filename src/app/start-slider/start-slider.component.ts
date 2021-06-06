@@ -43,7 +43,6 @@ export class StartSliderComponent implements OnInit {
   }
 
   getSlideWidth() {
-    console.log(document.querySelector('.slider__slide'));
     // @ts-ignore
     this.slideWidth = document.querySelector('.slider__slide').getBoundingClientRect().width
   }
@@ -54,6 +53,7 @@ export class StartSliderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    debugger
   }
 
   selectSlide($event: Event) {
@@ -64,11 +64,32 @@ export class StartSliderComponent implements OnInit {
     slide.active = true;
     this.getSlideWidth();
     this.getActiveSlideIndex();
+  }
 
+  next() {
+    const index = this.activeSlideIndex;
+    // @ts-ignore
+    let newIndex = index + 1;
+    if (newIndex >= this.slides.length) newIndex = 0;
+    this.slides.forEach(slide => slide.active = false);
+    this.slides[newIndex].active = true;
+    this.getSlideWidth();
+    this.getActiveSlideIndex();
+  }
+
+  prev() {
+    const index = this.activeSlideIndex;
+    // @ts-ignore
+    let newIndex = index - 1;
+    if (newIndex < 0) newIndex = this.slides.length - 1;
+    this.slides.forEach(slide => slide.active = false);
+    this.slides[newIndex].active = true;
+    this.getSlideWidth();
+    this.getActiveSlideIndex();
   }
 
   calculateRight() {
     // @ts-ignore
-    return (this.activeSlideIndex * this.slideWidth)+'px'
+    return (this.activeSlideIndex * this.slideWidth) + 'px'
   }
 }
