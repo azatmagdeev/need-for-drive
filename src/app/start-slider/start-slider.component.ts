@@ -37,6 +37,7 @@ export class StartSliderComponent implements OnInit {
   slides = slides;
   activeSlideIndex: number | undefined;
   slideWidth: number | undefined = 0;
+  private intervalId: number | undefined = undefined;
 
   getActiveSlideIndex() {
     this.activeSlideIndex = this.slides.findIndex(slide => slide.active)
@@ -49,13 +50,18 @@ export class StartSliderComponent implements OnInit {
 
   constructor() {
     this.getActiveSlideIndex();
-    setInterval(()=>this.next(),7000)
+    this.setInterval();
+  }
+
+  setInterval() {
+    this.intervalId = setInterval(()=>this.next(),7000)
   }
 
   ngOnInit(): void {
   }
 
   selectSlide($event: Event) {
+    clearInterval(this.intervalId)
     this.slides.forEach(slide => slide.active = false);
     // @ts-ignore
     const slide = this.slides.find(slide => slide.title === $event.target.title)
@@ -63,9 +69,11 @@ export class StartSliderComponent implements OnInit {
     slide.active = true;
     this.getSlideWidth();
     this.getActiveSlideIndex();
+    this.setInterval();
   }
 
   next() {
+    clearInterval(this.intervalId)
     const index = this.activeSlideIndex;
     // @ts-ignore
     let newIndex = index + 1;
@@ -74,9 +82,11 @@ export class StartSliderComponent implements OnInit {
     this.slides[newIndex].active = true;
     this.getSlideWidth();
     this.getActiveSlideIndex();
+    this.setInterval();
   }
 
   prev() {
+    clearInterval(this.intervalId)
     const index = this.activeSlideIndex;
     // @ts-ignore
     let newIndex = index - 1;
@@ -85,6 +95,7 @@ export class StartSliderComponent implements OnInit {
     this.slides[newIndex].active = true;
     this.getSlideWidth();
     this.getActiveSlideIndex();
+    this.setInterval();
   }
 
   calculateRight() {
