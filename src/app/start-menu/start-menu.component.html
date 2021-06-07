@@ -7,10 +7,11 @@
   </div>
   <div class="menu__base">
     <div class="menu__list">
-      <div class="menu-list__item">Парковка</div>
-      <div class="menu-list__item">Страховка</div>
-      <div class="menu-list__item">Бензин</div>
-      <div class="menu-list__item">Обслуживание</div>
+      <div class="menu-list__item" *ngFor="let slide of slides">{{slide.title}}</div>
+<!--      <div class="menu-list__item">Парковка</div>-->
+<!--      <div class="menu-list__item">Страховка</div>-->
+<!--      <div class="menu-list__item">Бензин</div>-->
+<!--      <div class="menu-list__item">Обслуживание</div>-->
     </div>
 
     <div class="menu__social">

@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {slides} from '../../constants';
 
 @Component({
   selector: 'app-start-menu',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./start-menu.component.scss']
 })
 export class StartMenuComponent implements OnInit {
+  slides = slides;
   open: boolean = false;
 
   constructor() { }
