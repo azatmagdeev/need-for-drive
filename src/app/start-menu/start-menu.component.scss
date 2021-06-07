@@ -101,9 +101,10 @@ $burger_btn_size: 20px;
   cursor: pointer;
 }
 
-.menu-social__item:hover path {
+/* перенесено в styles.scss
+.menu-social__item:hover path{
   fill: $main_color;
-}
+}*/
 
 .menu__lang {
   color: $main_color;

@@ -1,5 +1,10 @@
 @import "../node_modules/scss-reset/src/scss/_reset.scss";
+@import "scss/variables.scss";
 
 body {
   font-family: Roboto, sans-serif;
+}
+
+.menu-social__item:hover path {
+  fill: $main_color;
 }
