@@ -1,6 +1,6 @@
-<div class="menu">
+<div class="menu {{open? 'menu_open':''}}">
 
-  <div class="menu__burger-button" onclick="this.closest('.menu').classList.toggle('menu_open')">
+  <div class="menu__burger-button" (click)="toggle()">
     <div class="burger-btn__line burger-btn__line_top"></div>
     <div class="burger-btn__line burger-btn__line_center"></div>
     <div class="burger-btn__line burger-btn__line_bottom"></div>
