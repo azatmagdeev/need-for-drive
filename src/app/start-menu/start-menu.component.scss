@@ -1,5 +1,7 @@
 @import "../../scss/variables";
 
+$burger_btn_size: 20px;
+
 .menu {
   background-color: $black;
   width: 100vw;
@@ -10,8 +12,6 @@
   transition-duration: 200ms;
 }
 
-$burger_btn_size: 20px;
-
 .menu__burger-button {
   position: fixed;
   width: $burger_btn_size;
@@ -21,6 +21,7 @@ $burger_btn_size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  cursor: pointer;
 }
 
 .burger-btn__line {
@@ -28,45 +29,45 @@ $burger_btn_size: 20px;
   height: $burger_btn_size/5;
   width: $burger_btn_size;
   transition: background-color 200ms;
+
+  &_center {
+    transition: opacity 200ms;
+  }
+
+  &_top {
+    transition: transform 100ms, top 200ms 300ms
+  }
+
+  &_bottom {
+    transition: transform 100ms, top 200ms 300ms
+  }
 }
 
 .menu_open {
   left: 0;
-}
 
-.menu_open .burger-btn__line {
-  background-color: $white;
-}
+  .burger-btn__line {
+    background-color: $white;
 
-.menu_open .burger-btn__line_center {
-  opacity: 0;
-  transition: opacity 200ms;
-}
+    &_center {
+      opacity: 0;
+      transition: opacity 200ms;
+    }
 
-.burger-btn__line_center {
-  transition: opacity 200ms;
-}
+    &_top {
+      position: absolute;
+      transform: rotate(45deg);
+      top: $burger_btn_size/5*2;
+      transition: top 200ms, transform 200ms
+    }
 
-.menu_open .burger-btn__line_top {
-  position: absolute;
-  transform: rotate(45deg);
-  top: $burger_btn_size/5*2;
-  transition: top 200ms, transform 200ms
-}
-
-.burger-btn__line_top {
-  transition: transform 100ms, top 200ms 300ms
-}
-
-.menu_open .burger-btn__line_bottom {
-  transform: rotate(-45deg);
-  position: absolute;
-  top: $burger_btn_size/5*2;
-  transition: top 200ms, transform 200ms
-}
-
-.burger-btn__line_bottom {
-  transition: transform 100ms, top 200ms 300ms
+    &_bottom {
+      transform: rotate(-45deg);
+      position: absolute;
+      top: $burger_btn_size/5*2;
+      transition: top 200ms, transform 200ms
+    }
+  }
 }
 
 .menu__base {
@@ -84,10 +85,10 @@ $burger_btn_size: 20px;
 .menu-list__item {
   margin-bottom: .5em;
   cursor: pointer;
-}
 
-.menu-list__item:hover {
-  color: $main_color;
+  &:hover {
+    color: $main_color;
+  }
 }
 
 .menu__social {
@@ -100,11 +101,6 @@ $burger_btn_size: 20px;
 .menu-social__item {
   cursor: pointer;
 }
-
-/* перенесено в styles.scss
-.menu-social__item:hover path{
-  fill: $main_color;
-}*/
 
 .menu__lang {
   color: $main_color;
@@ -140,8 +136,21 @@ $burger_btn_size: 20px;
   .menu__base {
     margin: 0;
   }
+
   .menu__list {
     font-size: 28px;
     width: 579px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .menu {
+    width: calc(50vw + 60px);
+    left: -50vw;
+  }
+
+  & .menu_open {
+    left: 0;
   }
 }
