@@ -1,10 +1,10 @@
 <div class="slider">
 
-  <div class="slider__slide" [style]="{right: calculateRight()}">
+  <div class="slider__slide" [style]="{right: calculateRight()}" #slideEl>
     <div *ngFor="let slide of slides"
          class="slider__slide-item"
-         style="background: linear-gradient(rgba(0, 0, 0, 0), black),
-                            url('assets/{{slide.img}}') center;background-size:cover">
+         style="background: linear-gradient(rgba(0, 0, 0, 0), black), url('assets/{{slide.img}}') center;
+                background-size:cover">
       <div class="slide__content">
         <div class="slide__title">{{slide.title}}</div>
         <div class="slide__descr">{{slide.descr}}</div>
@@ -17,18 +17,16 @@
     <img src="assets/icons/arrow-left.svg" alt="">
   </div>
 
-
-
   <div class="slider__arrow slider__arrow-right" (click)="next()">
     <img src="assets/icons/arrow-right.svg" alt="">
   </div>
 
   <div class="slider__dots">
-    <div *ngFor="let slide of slides" title="{{slide.title}}"
-         (click)="selectSlide($event)"
-         class="slider-dots__dot{{slide.active?' slider-dots__dot_active':''}}">
+    <div *ngFor="let slide of slides"
+         (click)="selectSlide(slide.title)"
+         class="slider-dots__dot"
+         [ngClass]="{'slider-dots__dot_active': slide.active}">
     </div>
   </div>
-
 
 </div>
