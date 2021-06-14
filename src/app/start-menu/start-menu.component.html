@@ -1,27 +1,25 @@
-<div class="menu" [ngClass]="{'menu_open':open}">
+<section class="menu" [ngClass]="{'menu_open':open}">
 
-  <div class="menu__burger-button" (click)="toggle()">
-    <div class="burger-btn__line burger-btn__line_top"></div>
-    <div class="burger-btn__line burger-btn__line_center"></div>
-    <div class="burger-btn__line burger-btn__line_bottom"></div>
-  </div>
-  <div class="menu__base">
-    <div class="menu__list">
-<!--      <div class="menu-list__item" *ngFor="let slide of slides">{{slide.title}}</div>-->
-      <div class="menu-list__item">Парковка</div>
-      <div class="menu-list__item">Страховка</div>
-      <div class="menu-list__item">Бензин</div>
-      <div class="menu-list__item">Обслуживание</div>
-    </div>
+  <button class="menu__burger-button" (click)="toggle()">
+    <span class="burger-btn__line burger-btn__line_top"></span>
+    <span class="burger-btn__line burger-btn__line_center"></span>
+    <span class="burger-btn__line burger-btn__line_bottom"></span>
+  </button>
 
-    <div class="menu__social">
-      <div class="menu-social__item" [inlineSVG]="'assets/icons/telegram.svg'"></div>
-      <div class="menu-social__item" [inlineSVG]="'assets/icons/facebook.svg'"></div>
-      <div class="menu-social__item" [inlineSVG]="'assets/icons/instagram.svg'"></div>
-    </div>
-  </div>
+  <article class="menu__base">
+    <ul class="menu__list">
+      <li class="menu-list__item">Парковка</li>
+      <li class="menu-list__item">Страховка</li>
+      <li class="menu-list__item">Бензин</li>
+      <li class="menu-list__item">Обслуживание</li>
+    </ul>
+    <ul class="menu__social">
+      <li class="menu-social__item" [inlineSVG]="'assets/icons/telegram.svg'"></li>
+      <li class="menu-social__item" [inlineSVG]="'assets/icons/facebook.svg'"></li>
+      <li class="menu-social__item" [inlineSVG]="'assets/icons/instagram.svg'"></li>
+    </ul>
+  </article>
 
+  <button class="menu__lang">Eng</button>
 
-  <div class="menu__lang">Eng</div>
-
-</div>
+</section>
