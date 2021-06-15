@@ -1,38 +1,32 @@
-<div class="slider">
+<section class="slider">
 
-  <div class="slider__slide" [style]="{right: calculateRight()}">
+  <div class="slider__slide" [style]="{right: calculateRight()}" #slideEl>
     <div *ngFor="let slide of slides"
          class="slider__slide-item"
-         style="background: linear-gradient(rgba(0, 0, 0, 0), black),
-                            url('assets/{{slide.img}}') center;background-size:cover">
-      <div class="slide__content">
-        <div class="slide__title">{{slide.title}}</div>
-        <div class="slide__descr">{{slide.descr}}</div>
+         style="background: linear-gradient(rgba(0, 0, 0, 0), black), url('assets/{{slide.img}}') center;
+                background-size:cover">
+      <article class="slide__content">
+        <h2 class="slide__title">{{slide.title}}</h2>
+        <p class="slide__descr">{{slide.descr}}</p>
         <button class="slide__button">Подробнее</button>
-      </div>
+      </article>
     </div>
   </div>
 
-  <div class="slider__arrow slider__arrow-left" (click)="prev()">
-    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9 1L1 10L9 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
+  <button class="slider__arrow slider__arrow-left" (click)="prev()">
+    <img src="assets/icons/arrow-left.svg" alt="">
+  </button>
 
+  <button class="slider__arrow slider__arrow-right" (click)="next()">
+    <img src="assets/icons/arrow-right.svg" alt="">
+  </button>
 
+  <ul class="slider__dots">
+    <li *ngFor="let slide of slides"
+         (click)="selectSlide(slide.title)"
+         class="slider-dots__dot"
+         [ngClass]="{'slider-dots__dot_active': slide.active}">
+    </li>
+  </ul>
 
-  <div class="slider__arrow slider__arrow-right" (click)="next()">
-    <svg width="10" height="20" viewBox="0 0 10 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M1 1L9 10L1 19" stroke="#EEEEEE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </div>
-
-  <div class="slider__dots">
-    <div *ngFor="let slide of slides" title="{{slide.title}}"
-         (click)="selectSlide($event)"
-         class="slider-dots__dot{{slide.active?' slider-dots__dot_active':''}}">
-    </div>
-  </div>
-
-
-</div>
+</section>

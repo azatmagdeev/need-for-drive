@@ -16,31 +16,28 @@
   margin: 0 20px;
 }
 
-.main-header__title {
-  color: $main_color;
-  font-weight: bold;
-  font-size: 30px;
-}
+.main-header {
+  &__title {
+    color: $main_color;
+    font-weight: bold;
+    font-size: 30px;
+  }
 
-.main-header__city {
-  font-size: 14px;
-  color: $gray;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: .5em;
-  margin-top: .5em;
+  &__city {
+    font-size: 14px;
+    color: $gray;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: .5em;
+    margin-top: .5em;
+  }
 }
-
 
 .main__title {
   font-weight: bold;
   font-size: 32px;
   margin-left: 20px;
-}
-
-.main-color {
-  color: $main_color;
 }
 
 .main__slogan {
@@ -62,7 +59,6 @@
 
 .main__footer {
   background-color: $black;
-  height: 15%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -71,20 +67,22 @@
   font-size: 13px;
 }
 
-.main-footer__phone {
-  color: $main_color;
-  margin-right: 20px;
-}
+.main-footer {
+  &__phone {
+    color: $main_color;
+    margin: 20px;
+  }
 
-.main-footer__copyright {
-  color: $white;
-  margin-right: 20px;
+  &__copyright {
+    color: $white;
+    margin:  0 20px 20px;
+  }
 }
 
 @media (min-width: 767px) {
 
   .main {
-    width: calc(100% - 60px);
+    width: calc(100vw - 60px);
     margin-left: 60px;
   }
 
@@ -113,7 +111,6 @@
 
   .main__footer {
     background-color: $white;
-    height: 10%;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
@@ -122,7 +119,7 @@
   .main-footer {
     &__copyright {
       color: $gray;
-      margin-left: 20px;
+      margin: 20px;
     }
 
     &__phone {
@@ -137,5 +134,8 @@
     width: calc(50vw + 60px);
   }
 
+  .main {
+    width: calc(100% - 60px);
+  }
 
 }
